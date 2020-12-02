@@ -9,4 +9,4 @@ Założenia:
 - Możliwość wyświetlania artykułów z określonymi tagami
 - Możliwość ograniczenia dostępu do treści użytkownikom (artykuły publiczne i płatne)
 - Możliwość integracji z bramką płatniczą (subskrypcja)
-- Możliwośc komentiwania artykułow
+- Możliwośc komentowania artykułów
