@@ -1,8 +1,6 @@
 package pl.training.blog;
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -18,9 +16,7 @@ public class ArticlesServiceTest {
 
         @Override
         public Article save(Article article) {
-            if (article != null) {
-                isSaved = true;
-            }
+            isSaved = true;
             return article;
         }
 
