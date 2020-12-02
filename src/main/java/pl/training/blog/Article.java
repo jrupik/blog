@@ -2,14 +2,13 @@ package pl.training.blog;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+
+import java.util.UUID;
 
 @RequiredArgsConstructor
 public class Article {
 
     @Getter
-    private final Long id;
-    @Setter
-    private String contents;
+    private final UUID uuid;
 
 }

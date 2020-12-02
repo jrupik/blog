@@ -1,12 +1,14 @@
 Założenia:
-- Możliwość tworzenia artykułów (tekst, wideo , grafiki) oraz zarządzania nimi (prosty cms)
 - Artykuły powinny być przechowywane w formacie markdown
-- Powinna być trzymana historia zmian artykułu
 - Artykuł nie powinien być widoczny do czasu publikacji (domyślnie jest przechowywany jako draft)
-- Możliwość wyszukiwania artykułów po słowach kluczowych
+- Możliwość wyszukiwania artykułów po słowach kluczowych (index)
+
+- Powinna być trzymana historia zmian artykułu
+- Możliwość tworzenia artykułów (tekst, wideo , grafiki) oraz zarządzania nimi (prosty cms)
 - Możliwość wyświetlania najnowszych artykułów
 - Możliwość wyświetlania artykułów w określonej kategorii (sortowanie po dacie)
 - Możliwość wyświetlania artykułów z określonymi tagami
-- Możliwość ograniczenia dostępu do treści użytkownikom (artykuły publiczne i płatne)
-- Możliwość integracji z bramką płatniczą (subskrypcja)
 - Możliwośc komentowania artykułów
+
+- Możliwość integracji z bramką płatniczą (subskrypcja)
+- Możliwość ograniczenia dostępu do treści użytkownikom (artykuły publiczne i płatne)
