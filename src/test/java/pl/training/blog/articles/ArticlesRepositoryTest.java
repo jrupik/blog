@@ -1,6 +1,7 @@
 package pl.training.blog.articles;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static pl.training.blog.articles.TestArticlesProvider.getPublishedArticle;
 
+@Tag("medium")
 @DataJpaTest
 @ExtendWith(SpringExtension.class)
 public class ArticlesRepositoryTest {

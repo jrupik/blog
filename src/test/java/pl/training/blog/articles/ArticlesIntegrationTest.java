@@ -2,6 +2,7 @@ package pl.training.blog.articles;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static pl.training.blog.articles.TestArticlesProvider.getPublishedArticle;
 
+@Tag("medium")
 @SpringBootTest(classes = BlogApplication.class)
 @AutoConfigureMockMvc
 @ExtendWith(SpringExtension.class)
@@ -43,8 +45,8 @@ public class ArticlesIntegrationTest {
     @BeforeEach
     void setup() {
         articleTransferObject.setUuid(UUID.randomUUID().toString());
-        //articlesService.add(firstArticle);
-        //articlesService.add(secondArticle);
+        articlesService.add(firstArticle);
+        articlesService.add(secondArticle);
     }
 
     @Test
