@@ -12,10 +12,12 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import pl.training.blog.BlogApplication;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.UUID;
 
+import static java.nio.file.Files.readString;
 import static java.util.stream.Collectors.toList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -44,7 +46,7 @@ public class ArticlesIntegrationTest {
 
     @BeforeEach
     void setup() {
-        articleTransferObject.setUuid(UUID.randomUUID().toString());
+        articleTransferObject.setUuid("fd687ca4-07fe-41bc-b0c3-c5f0445394ab");
         articlesService.add(firstArticle);
         articlesService.add(secondArticle);
     }
@@ -59,12 +61,15 @@ public class ArticlesIntegrationTest {
 
     @Test
     void should_add_article() throws Exception {
-        mockMvc.perform(post("/articles")
+        var body = mockMvc.perform(post("/articles")
                 .contentType(APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(articleTransferObject)))
                 .andExpect(status().isCreated())
                 .andExpect(header().exists(LOCATION))
-                .andExpect(jsonPath("$.uuid", is(articleTransferObject.getUuid())));
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+        assertEquals(readString(Path.of("added-article.json")), body);
     }
 
 }

@@ -10,11 +10,7 @@ Założenia:
 - Możliwość integracji z bramką płatniczą (subskrypcja)
 - Możliwość ograniczenia dostępu do treści użytkownikom (artykuły publiczne i płatne)
 
+- Testy akceptacyjne
 
-- (Controller) Dodawanie, aktualizacja, publikowanie artykułu, szukanie po słowie kluczowym, wyciąganie historii
-- Testy integracyjne i akceptacyjne
-
-
-tagi
 refactor do data provider
 portóownywanie jsona w pliku
