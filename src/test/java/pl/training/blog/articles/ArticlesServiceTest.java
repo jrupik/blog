@@ -1,4 +1,4 @@
-package pl.training.blog;
+package pl.training.blog.articles;
 
 import lombok.Getter;
 import org.junit.jupiter.api.BeforeEach;

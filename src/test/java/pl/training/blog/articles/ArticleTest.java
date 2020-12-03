@@ -1,7 +1,6 @@
-package pl.training.blog;
+package pl.training.blog.articles;
 
 import org.junit.jupiter.api.Test;
-import pl.training.blog.articles.Article;
 
 import static java.util.UUID.randomUUID;
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -1,4 +1,4 @@
-package pl.training.blog;
+package pl.training.blog.articles;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,8 +22,8 @@ import static pl.training.blog.articles.ArticleState.PUBLISHED;
 @ExtendWith(SpringExtension.class)
 public class ArticlesRepositoryTest {
 
-    private final Article firstArticle = new Article(randomUUID(), "java");
-    private final Article secondArticle = new Article(randomUUID(), "java java");
+    private final Article firstArticle = TestArticlesProvider.getPublishedArticle("java", LocalDateTime.now());
+    private final Article secondArticle = TestArticlesProvider.getPublishedArticle("java java", LocalDateTime.now().plusDays(1));
 
     @Autowired
     private EntityManager entityManager;
@@ -32,10 +32,6 @@ public class ArticlesRepositoryTest {
 
     @BeforeEach
     void setup() {
-        firstArticle.setPublicationDate(LocalDateTime.now());
-        firstArticle.setState(PUBLISHED);
-        secondArticle.setPublicationDate(LocalDateTime.now().plusDays(1L));
-        secondArticle.setState(PUBLISHED);
         entityManager.persist(firstArticle);
         entityManager.persist(secondArticle);
     }
