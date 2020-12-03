@@ -11,7 +11,9 @@ Założenia:
 - Możliwość ograniczenia dostępu do treści użytkownikom (artykuły publiczne i płatne)
 
 
-- (Repo) Możliwość wyświetlania najnowszych artykułów, posortowanych względem daty publikacji
-         Możliwość wyświetlania historii zmian, posortowanych względem daty modyfikacji
 - (Controller) Dodawanie, aktualizacja, publikowanie artykułu, szukanie po słowie kluczowym, wyciąganie historii
 - Testy integracyjne i akceptacyjne
+
+
+tgi
+refactor do data provider
