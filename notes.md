@@ -15,6 +15,6 @@ Założenia:
 - Testy integracyjne i akceptacyjne
 
 
-tgi
+tagi
 refactor do data provider
 portóownywanie jsona w pliku

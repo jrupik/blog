@@ -1,7 +1,7 @@
 package pl.training.blog.payments;
 
 import lombok.*;
-import pl.training.blog.jpa.Identifiable;
+import pl.training.blog.commons.jpa.Identifiable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

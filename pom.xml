@@ -19,6 +19,7 @@
 
 	<properties>
 		<java.version>11</java.version>
+		<mapstruct.version>1.4.1.Final</mapstruct.version>
 	</properties>
 
 	<build>
@@ -59,6 +60,16 @@
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>42.2.18</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct-processor</artifactId>
+			<version>${mapstruct.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>${mapstruct.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>

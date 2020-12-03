@@ -1,4 +1,4 @@
-package pl.training.blog.jpa;
+package pl.training.blog.commons.jpa;
 
 public interface Identifiable<T> {
 

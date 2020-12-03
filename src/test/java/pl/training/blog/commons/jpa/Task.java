@@ -1,4 +1,4 @@
-package pl.training.blog.jpa;
+package pl.training.blog.commons.jpa;
 
 import javax.persistence.EntityManager;
 import java.util.concurrent.CountDownLatch;

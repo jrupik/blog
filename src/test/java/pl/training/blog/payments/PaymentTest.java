@@ -1,6 +1,6 @@
 package pl.training.blog.payments;
 
-import pl.training.blog.jpa.EntityTest;
+import pl.training.blog.commons.jpa.EntityTest;
 
 public class PaymentTest extends EntityTest<Payment> {
 

@@ -1,4 +1,4 @@
-package pl.training.blog.jpa;
+package pl.training.blog.commons.jpa;
 
 import com.codahale.metrics.MetricRegistry;
 import com.codahale.metrics.Slf4jReporter;

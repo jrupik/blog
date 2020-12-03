@@ -1,8 +1,7 @@
-package pl.training.blog.jpa;
+package pl.training.blog.commons.jpa;
 
 import org.hibernate.Session;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
