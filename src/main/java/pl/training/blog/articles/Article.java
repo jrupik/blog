@@ -1,6 +1,7 @@
 package pl.training.blog.articles;
 
 import lombok.*;
+import pl.training.blog.commons.jpa.UUIDConverter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -19,7 +20,9 @@ public class Article {
     @Id
     @Getter
     private Long id;
+    @Convert(converter = UUIDConverter.class)
     @Getter
+    @Setter
     @NonNull
     private UUID uuid;
     @Getter

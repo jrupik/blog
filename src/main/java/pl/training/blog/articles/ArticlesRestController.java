@@ -1,7 +1,6 @@
 package pl.training.blog.articles;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,7 +15,7 @@ public class ArticlesRestController {
     private final ArticleMapper articleMapper;
     private final ArticlesService articlesService;
 
-    @PostMapping(value = "/articles", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/articles")
     public ResponseEntity<ArticleTransferObject> addArticle(@RequestBody ArticleTransferObject articleTransferObject) {
         var article = articlesService.add(articleMapper.toArticle(articleTransferObject));
         var locationUri = requestUriWithId(article.getId());
