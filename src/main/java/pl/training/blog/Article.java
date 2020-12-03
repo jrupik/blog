@@ -1,24 +1,34 @@
 package pl.training.blog;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import java.time.LocalDateTime;
 import java.util.UUID;
 import java.util.regex.Pattern;
 
 import static pl.training.blog.ArticleState.*;
 
+@Entity
 @ToString
 @RequiredArgsConstructor
+@NoArgsConstructor
 public class Article {
 
+    @GeneratedValue
+    @Id
+    private Long id;
     @Getter
-    private final UUID uuid;
+    @NonNull
+    private UUID uuid;
     @Getter
-    private final String contents;
-
+    @NonNull
+    private String contents;
+    @Getter
+    @Setter
+    private LocalDateTime publicationDate;
     @Getter
     @Setter
     private ArticleState state = DRAFT;

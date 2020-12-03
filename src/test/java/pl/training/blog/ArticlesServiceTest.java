@@ -37,6 +37,11 @@ public class ArticlesServiceTest {
             return null;
         }
 
+        @Override
+        public List<Article> findPublished() {
+            return null;
+        }
+
     }
 
     @BeforeEach
