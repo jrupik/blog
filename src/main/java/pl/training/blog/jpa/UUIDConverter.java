@@ -1,4 +1,4 @@
-package pl.training.blog;
+package pl.training.blog.jpa;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;

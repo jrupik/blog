@@ -1,13 +1,13 @@
 package pl.training.blog;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import pl.training.blog.articles.Article;
+import pl.training.blog.articles.ArticlesRepository;
 
 import javax.persistence.EntityManager;
 
@@ -16,6 +16,7 @@ import java.util.List;
 
 import static java.util.UUID.randomUUID;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static pl.training.blog.articles.ArticleState.PUBLISHED;
 
 @DataJpaTest
 @ExtendWith(SpringExtension.class)
@@ -32,7 +33,9 @@ public class ArticlesRepositoryTest {
     @BeforeEach
     void setup() {
         firstArticle.setPublicationDate(LocalDateTime.now());
+        firstArticle.setState(PUBLISHED);
         secondArticle.setPublicationDate(LocalDateTime.now().plusDays(1L));
+        secondArticle.setState(PUBLISHED);
         entityManager.persist(firstArticle);
         entityManager.persist(secondArticle);
     }

@@ -1,15 +1,13 @@
-package pl.training.blog;
+package pl.training.blog.articles;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.UUID;
 import java.util.regex.Pattern;
 
-import static pl.training.blog.ArticleState.*;
+import static pl.training.blog.articles.ArticleState.*;
 
 @Entity
 @ToString
@@ -29,6 +27,7 @@ public class Article {
     @Getter
     @Setter
     private LocalDateTime publicationDate;
+    @Enumerated(EnumType.STRING)
     @Getter
     @Setter
     private ArticleState state = DRAFT;

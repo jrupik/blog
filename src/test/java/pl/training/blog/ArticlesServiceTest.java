@@ -4,9 +4,12 @@ import lombok.Getter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
+import pl.training.blog.articles.Article;
+import pl.training.blog.articles.ArticleState;
+import pl.training.blog.articles.ArticlesRepository;
+import pl.training.blog.articles.ArticlesService;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import static java.util.UUID.randomUUID;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
