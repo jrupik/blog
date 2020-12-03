@@ -17,3 +17,4 @@ Założenia:
 
 tgi
 refactor do data provider
+portóownywanie jsona w pliku
