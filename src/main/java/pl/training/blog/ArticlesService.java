@@ -10,7 +10,6 @@ import static java.util.stream.Collectors.toList;
 public class ArticlesService {
 
     private final ArticlesRepository articlesRepository;
-    private final RankingService rankingService;
 
     public Article add(Article article) {
         article.setState(ArticleState.DRAFT);
@@ -28,7 +27,7 @@ public class ArticlesService {
 
     public List<Article> findArticlesByKeyword(String keyword) {
         return articlesRepository.findAll().stream()
-                .map(article -> rankingService.getRank(keyword, article))
+                .map(article -> new Rank(article.getWordsCount(keyword), article))
                 .sorted()
                 .map(Rank::getArticle)
                 .collect(toList());

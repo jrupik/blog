@@ -3,8 +3,10 @@ package pl.training.blog;
 import lombok.Getter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static java.util.UUID.randomUUID;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -16,8 +18,7 @@ import static org.mockito.Mockito.*;
 public class ArticlesServiceTest {
 
     private final ArticlesRepository articlesRepositoryMock = mock(ArticlesRepository.class);
-    private final RankingService rankingServiceMock = mock(RankingService.class);
-    private final ArticlesService articleService = new ArticlesService(articlesRepositoryMock, rankingServiceMock);
+    private final ArticlesService articleService = new ArticlesService(articlesRepositoryMock);
 
     private static class ArticlesRepositoryStub implements ArticlesRepository {
 
@@ -46,7 +47,7 @@ public class ArticlesServiceTest {
     void added_article_should_be_saved() {
         var article = new Article(randomUUID(), "");
         var articlesRepositoryStub = new ArticlesRepositoryStub();
-        var articleService = new ArticlesService(articlesRepositoryStub, rankingServiceMock);
+        var articleService = new ArticlesService(articlesRepositoryStub);
         articleService.add(article);
         assertTrue(articlesRepositoryStub.isSaved);
     }
@@ -96,10 +97,20 @@ public class ArticlesServiceTest {
         var keyword = "java";
         var firstArticle = new Article(randomUUID(), "java");
         var secondArticle = new Article(randomUUID(), "java java");
-        when(rankingServiceMock.getRank(keyword, firstArticle)).thenReturn(new Rank(1L, firstArticle));
-        when(rankingServiceMock.getRank(keyword, secondArticle)).thenReturn(new Rank(2L, secondArticle));
         when(articlesRepositoryMock.findAll()).thenReturn(List.of(firstArticle, secondArticle));
         assertEquals(List.of(secondArticle, firstArticle), articleService.findArticlesByKeyword(keyword));
+    }
+
+    @Timeout(value = 10, unit = TimeUnit.MILLISECONDS)
+    @Test
+    void article_search_performance() {
+        var keyword = "java";
+        var firstArticle = new Article(randomUUID(), "java");
+        var secondArticle = new Article(randomUUID(), "java java");
+        when(articlesRepositoryMock.findAll()).thenReturn(List.of(firstArticle, secondArticle));
+        for (int index = 1; index < 1000; index++) {
+            articleService.findArticlesByKeyword(keyword);
+        }
     }
 
 }

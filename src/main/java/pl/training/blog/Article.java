@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.util.UUID;
+import java.util.regex.Pattern;
 
 import static pl.training.blog.ArticleState.*;
 
@@ -21,5 +22,12 @@ public class Article {
     @Getter
     @Setter
     private ArticleState state = DRAFT;
+
+    public long getWordsCount(String word) {
+        return Pattern.compile(word, Pattern.CASE_INSENSITIVE)
+                .matcher(contents)
+                .results()
+                .count();
+    }
 
 }
